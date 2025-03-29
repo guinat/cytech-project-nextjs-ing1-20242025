@@ -5,6 +5,7 @@ interface FeatureModalProps {
     title: string;
     description: string;
     example: string;
+    featureKey: string;
     onClose: () => void;
 }
 
@@ -30,15 +31,20 @@ const FeatureModal: React.FC<FeatureModalProps> = ({
                 <div className="p-6">
                     <p className="text-lg text-gray-600 mb-8">{description}</p>
 
-                    <div className="relative">
-                        <div className="absolute top-4 left-4 text-white">
-                            <Code size={20} />
+                    <div className="space-y-8">
+                        <div>
+                            <h3 className="text-xl font-bold text-black mb-4">Exemple</h3>
+                            <div className="relative">
+                                <div className="absolute top-4 left-4 text-white">
+                                    <Code size={20} />
+                                </div>
+                                <pre className="bg-gray-900 rounded-lg p-6 pt-12 overflow-x-auto">
+                                    <code className="text-gray-300 text-sm whitespace-pre">
+                                        {example}
+                                    </code>
+                                </pre>
+                            </div>
                         </div>
-                        <pre className="bg-gray-900 rounded-lg p-6 pt-12 overflow-x-auto">
-                            <code className="text-gray-300 text-sm whitespace-pre">
-                                {example}
-                            </code>
-                        </pre>
                     </div>
                 </div>
             </div>
